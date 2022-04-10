@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Scrivania\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Scrivania\\.nuget\\packages"
+    ]
+  }
+}
