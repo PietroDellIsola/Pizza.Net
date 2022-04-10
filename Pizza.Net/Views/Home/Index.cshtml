@@ -2,7 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
+<script>
+function findPizzas() {
+	$.getJSON("api/pizza/",
+		function (data) {
+			var str = '<p><b>' + data.term + '</b><br />' + data.definition + '</p>';
+            $('#divPizze').html(str);
+		}).fail(
+		    function (jqXHR, textStatus, err) {
+                $('#divPizze').html('Error: ' + err);
+				});
+}
+</script>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Pizza.Net</h1>
+    <p>
+        Ciao! Benvenuto su Pizza.Net. Ecco le nostre pizze [aggiungere link alla lista?].
+        Preferisci riceverle a casa o ritirarle da noi? Nessun problema! Ti verrà chiesto al momento del
+        checkout dell'ordine! Anche il pagamento può essere fatto online oppure in negozio
+    </p>
+    <button onclick="findPizzas();">Dammi le pizze</button>
+    <div id="divPizze"></div>
 </div>
