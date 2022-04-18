@@ -15,7 +15,7 @@ function findPizzas() {
             myTable1 += "<tr><td><b>Nome Pizza</b></td><td><b>Ingredienti</b></td></tr>";
 
             $.each(listaPizze, function (i, v) {
-                myTable1 += "<tr><td>" + v.name + "</td><td>" + v.ingredients + "</td></tr>";
+                myTable1 += "<tr><td>" + v.name + "</td><td>" + v.ingredients.join(', ') + "</td></tr>";
             });
 
             $("#divPizze").html(myTable1);
