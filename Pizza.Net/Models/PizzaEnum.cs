@@ -3,7 +3,16 @@ using System.Collections.Generic;
 
 namespace Pizza.Net.Models
 {
-    public class PizzaEnum
+    public enum PizzaEnum
+    {
+        PizzaNotFounded,
+        Margherita,
+        Marinara,
+        RossaConVerdure,
+        BiancaConVerdure
+    }
+
+    /*public class PizzaEnum
     {
         private readonly int code;
         public readonly string name;
@@ -38,5 +47,5 @@ namespace Pizza.Net.Models
         public String getName(PizzaEnum pizzaEnum) {
             return pizzaEnum.name;
         }
-    }
+    }*/
 }

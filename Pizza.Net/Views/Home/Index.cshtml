@@ -5,9 +5,21 @@
 <script>
 function findPizzas() {
 	$.getJSON("api/pizza/",
-		function (data) {
-			var str = '<p><b>' + data.term + '</b><br />' + data.definition + '</p>';
-            $('#divPizze').html(str);
+        function (listaPizze) {
+           /* 
+			var str = '<p><b>' + data +'</b><br />' + data.definition + '</p>';
+            $('#divPizze').html(str);*/
+            console.info(listaPizze);
+            var myTable1 = '';
+            myTable1 += '<table id="myTable1" cellspacing=0 cellpadding=2 border=1>';
+            myTable1 += "<tr><td><b>Nome Pizza</b></td><td><b>Ingredienti</b></td></tr>";
+
+            $.each(listaPizze, function (i, v) {
+                myTable1 += "<tr><td>" + v.name + "</td><td>" + v.ingredients + "</td></tr>";
+            });
+
+            $("#divPizze").html(myTable1);
+
 		}).fail(
 		    function (jqXHR, textStatus, err) {
                 $('#divPizze').html('Error: ' + err);

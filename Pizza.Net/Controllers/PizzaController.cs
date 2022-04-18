@@ -16,22 +16,22 @@ namespace Pizza.Net.Controllers
         
         List<PizzaModel> pizzas = new List<PizzaModel>
         {
-            new PizzaModel { PizzaEnum = PizzaEnum.MARGHERITA, 
+            new PizzaModel { PizzaEnum = PizzaEnum.Margherita, 
                 Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico" }},
-            new PizzaModel { PizzaEnum = PizzaEnum.MARINARA,
+            new PizzaModel { PizzaEnum = PizzaEnum.Marinara,
             Ingredients = new List<string> { "Pomodoro", "Aglio", "Origano" }},
-            new PizzaModel { PizzaEnum = PizzaEnum.ROSSA_CON_VERDURE,
+            new PizzaModel { PizzaEnum = PizzaEnum.RossaConVerdure,
             Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico", "Verdure grigliate" }},
-            new PizzaModel { PizzaEnum = PizzaEnum.BIANCA_CON_VERDURE,
+            new PizzaModel { PizzaEnum = PizzaEnum.BiancaConVerdure,
             Ingredients = new List<string> { "Mozzarella", "Basilico", "Verdure grigliate" }}
         };
 
         [HttpGet("pizza")]
-        public List<PizzaResponse> getPizzas() {
+        public List<PizzaResponse> GetPizzas() {
             List<PizzaResponse> pizzaRes = new List<PizzaResponse>();
             foreach (PizzaModel pizza in pizzas)
             {
-                pizzaRes.Add(new PizzaResponse(pizza.PizzaEnum.name, pizza.Ingredients));
+                pizzaRes.Add(new PizzaResponse(pizza.PizzaEnum.ToString(), pizza.Ingredients));
             }
             return pizzaRes;
         }
