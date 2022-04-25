@@ -13,18 +13,16 @@ namespace Pizza.Net.Controllers
     [ApiController]
     public class PizzaController : Controller
     {
-        static readonly double MARGHERITA_PRICE = 4.5;
-
         List<PizzaModel> pizzas = new List<PizzaModel>
         {
             new PizzaModel { PizzaEnum = PizzaEnum.Margherita,
-                Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico" }},
+                Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico", "Olio" }, Price = 4.0},
             new PizzaModel { PizzaEnum = PizzaEnum.Marinara,
-            Ingredients = new List<string> { "Pomodoro", "Aglio", "Origano" }},
+            Ingredients = new List<string> { "Pomodoro", "Aglio", "Origano", "Olio" }, Price = 3.5},
             new PizzaModel { PizzaEnum = PizzaEnum.RossaConVerdure,
-            Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico", "Verdure grigliate" }},
+            Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico", "Verdure grigliate", "Olio" }, Price = 6.0},
             new PizzaModel { PizzaEnum = PizzaEnum.BiancaConVerdure,
-            Ingredients = new List<string> { "Mozzarella", "Basilico", "Verdure grigliate" }}
+            Ingredients = new List<string> { "Mozzarella", "Basilico", "Verdure grigliate", "Olio" }, Price = 6.0}
         };
 
         [HttpGet("pizza")]
