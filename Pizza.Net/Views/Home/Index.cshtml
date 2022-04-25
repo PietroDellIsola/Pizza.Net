@@ -3,37 +3,38 @@
 }
 
 <script>
-function findPizzas() {
-	$.getJSON("api/pizza/",
-        function (listaPizze) {
-           /* 
-			var str = '<p><b>' + data +'</b><br />' + data.definition + '</p>';
-            $('#divPizze').html(str);*/
-            console.info(listaPizze);
-            var myTable1 = '';
-            myTable1 += '<table id="myTable1" cellspacing=0 cellpadding=2 border=1>';
-            myTable1 += "<tr><td><b>Nome Pizza</b></td><td><b>Ingredienti</b></td></tr>";
+    window.onload = findPizzas
 
-            $.each(listaPizze, function (i, v) {
-                myTable1 += "<tr><td>" + v.name + "</td><td>" + v.ingredients.join(', ') + "</td></tr>";
-            });
+    function findPizzas() {
+	    $.getJSON("api/pizza/",
+            function (listaPizze) {
+                console.info(listaPizze);
+                var myTable1 = '';
+                myTable1 += '<table id="myTable1" cellspacing=0 cellpadding=2 border=1>';
+                myTable1 += "<tr><td><b>Nome Pizza</b></td><td><b>Ingredienti</b></td><td><b>Prezzo</b></td></tr>";
 
-            $("#divPizze").html(myTable1);
+                $.each(listaPizze, function (i, v) {
+                    myTable1 += "<tr><td>" + v.name + "</td><td>" + v.ingredients.join(', ') + "</td><td> N/D </td></tr>";
+                });
 
-		}).fail(
-		    function (jqXHR, textStatus, err) {
-                $('#divPizze').html('Error: ' + err);
-				});
-}
+                $("#divPizze").html(myTable1);
+
+		    })/*.fail(
+		        function (jqXHR, textStatus, err) {
+                    $('#divPizze').html('Error: ' + err);
+				    });*/
+    }
+
+
 </script>
 
 <div class="text-center">
     <h1 class="display-4">Pizza.Net</h1>
+    <h3>Ciao! Benvenuto su Pizza.Net.</h3><br>
     <p>
-        Ciao! Benvenuto su Pizza.Net. Ecco le nostre pizze [aggiungere link alla lista?].
         Preferisci riceverle a casa o ritirarle da noi? Nessun problema! Ti verrà chiesto al momento del
-        checkout dell'ordine! Anche il pagamento può essere fatto online oppure in negozio
+        checkout dell'ordine! Anche il pagamento può essere fatto online oppure in negozio. 
+        Ecco la lista delle nostre pizze:
     </p>
-    <button onclick="findPizzas();">Dammi le pizze</button>
     <div id="divPizze"></div>
 </div>

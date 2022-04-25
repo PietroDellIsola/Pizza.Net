@@ -13,10 +13,11 @@ namespace Pizza.Net.Controllers
     [ApiController]
     public class PizzaController : Controller
     {
-        
+        static readonly double MARGHERITA_PRICE = 4.5;
+
         List<PizzaModel> pizzas = new List<PizzaModel>
         {
-            new PizzaModel { PizzaEnum = PizzaEnum.Margherita, 
+            new PizzaModel { PizzaEnum = PizzaEnum.Margherita,
                 Ingredients = new List<string> { "Pomodoro", "Mozzarella", "Basilico" }},
             new PizzaModel { PizzaEnum = PizzaEnum.Marinara,
             Ingredients = new List<string> { "Pomodoro", "Aglio", "Origano" }},
@@ -31,7 +32,7 @@ namespace Pizza.Net.Controllers
             List<PizzaResponse> pizzaRes = new List<PizzaResponse>();
             foreach (PizzaModel pizza in pizzas)
             {
-                pizzaRes.Add(new PizzaResponse(pizza.PizzaEnum.ToString(), pizza.Ingredients));
+                pizzaRes.Add(new PizzaResponse(pizza.PizzaEnum.ToString(), pizza.Ingredients, pizza.Price));
             }
             return pizzaRes;
         }

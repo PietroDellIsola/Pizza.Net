@@ -9,11 +9,14 @@ namespace Pizza.Net.Models
 
         public List<string> Ingredients { get; set; }
 
+        public double Price { get; set; }
+
         public PizzaResponse() { }
 
-        public PizzaResponse(String name, List<string> ingredients) {
+        public PizzaResponse(String name, List<string> ingredients, double price) {
             Name = name;
             Ingredients = ingredients;
+            Price = price;
         }
 
     }
