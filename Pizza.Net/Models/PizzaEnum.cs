@@ -6,6 +6,12 @@ namespace Pizza.Net.Models
     public enum PizzaEnum
     {
         PizzaNotFounded,
+        WurstelEPatatine,
+        Siciliana,
+        QuattroStagioni,
+        QuattroFormaggi,
+        Capricciosa,
+        Napoletana,
         Margherita,
         Marinara,
         RossaConVerdure,
